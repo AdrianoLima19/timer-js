@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TimerJS - Temporizador</title>
+    <link rel="stylesheet" href="assets/fontawesome/all.min.css" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <script type="module" src="assets/script.js"></script>
+  </head>
+  <body>
+    <main>
+      <nav class="panel">
+        <ul>
+          <li><button tabindex="0" id="timerBtn" onclick="timerPanel()" active>Temporizador</button></li>
+          <li><button tabindex="0" id="stopwatchBtn" onclick="stopwatchPanel()">Cronômetro</button></li>
+        </ul>
+      </nav>
+      <!-- Timer -->
+      <section id="timer" active>
+        <h1 class="display">
+          <p type="hour">00</p>
+          <span>:</span>
+          <p type="minute">05</p>
+          <span>:</span>
+          <p type="second">00</p>
+          <div class="input-wrapper">
+            <input type="text" />
+          </div>
+        </h1>
+        <nav>
+          <ul id="edit">
+            <li>
+              <button tabindex="2"><i role="close" class="fas fa-times"></i><span>Cancelar</span></button>
+            </li>
+            <li>
+              <button tabindex="2"><i role="save" class="fas fa-save"></i><span>Salvar</span></button>
+            </li>
+          </ul>
+          <ul id="panel" active>
+            <li>
+              <button tabindex="1"><i role="edit" class="fas fa-clock"></i><span>Editar Tempo</span></button>
+            </li>
+            <li>
+              <button tabindex="1"><i role="play" class="fas fa-play"></i><span>Iniciar</span></button>
+            </li>
+            <li hidden>
+              <button tabindex="1"><i role="pause" class="fas fa-pause"></i><span>Pausar</span></button>
+            </li>
+            <li>
+              <button tabindex="1"><i role="reset" class="fas fa-redo-alt"></i><span>Reiniciar</span></button>
+            </li>
+            <li hidden>
+              <button tabindex="1">
+                <i role="notificationOff" class="fas fa-bell"></i><span>Desativar Notificações</span>
+              </button>
+            </li>
+            <li>
+              <button tabindex="1">
+                <i role="notificationOn" class="fas fa-bell-slash"></i><span>Ativar Notificações</span>
+              </button>
+            </li>
+            <li>
+              <button tabindex="1"><i role="volumeOn" class="fas fa-volume-up"></i><span>Desativar Som</span></button>
+            </li>
+            <li hidden>
+              <button tabindex="1"><i role="volumeOff" class="fas fa-volume-off"></i><span>Ativar Som</span></button>
+            </li>
+          </ul>
+        </nav>
+      </section>
+      <!-- Stopwatch -->
+      <section id="stopwatch">
+        <h1 class="display">
+          <p type="hour"></p>
+          <span>:</span>
+          <p type="minute"></p>
+          <span>:</span>
+          <p type="second">00</p>
+          <span>.</span>
+          <p type="millisecond">00</p>
+        </h1>
+        <nav>
+          <ul>
+            <li>
+              <button tabindex="3"><i role="play" class="fas fa-play"></i><span>Iniciar</span></button>
+            </li>
+            <li hidden>
+              <button tabindex="3"><i role="pause" class="fas fa-pause"></i><span>Pausar</span></button>
+            </li>
+            <li>
+              <button tabindex="3"><i role="reset" class="fas fa-redo-alt"></i><span>Reiniciar</span></button>
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </main>
+  </body>
+</html>
