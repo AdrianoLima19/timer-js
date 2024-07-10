@@ -1,6 +1,8 @@
 import stopwatch from "./js/stopwatch.js";
+import timer from "./js/timer.js";
 
 stopwatch();
+timer();
 
 window.timerPanel = () => panelSection("timer");
 window.stopwatchPanel = () => panelSection("stopwatch");
