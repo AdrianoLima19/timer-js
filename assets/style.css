@@ -92,6 +92,7 @@ main > section {
 nav.panel ul {
   grid-area: nav;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin: 0;
@@ -126,9 +127,16 @@ nav.panel button[active] {
   cursor: auto;
 }
 
-@media (max-width: 1200px) {
-  nav.panel button:not([active]) {
-    display: none;
+@media (max-width: 1257px) {
+  nav.panel ul {
+    flex-direction: column;
+  }
+
+  nav.panel li:first-of-type button {
+    margin-block: 0.36rem 0;
+  }
+  nav.panel li:last-of-type button {
+    margin-block: 1.56rem 0;
   }
 }
 
@@ -178,7 +186,6 @@ section nav ul {
 }
 
 section nav ul button {
-  position: relative;
   background: transparent;
   border: none;
   border-radius: 4px;
@@ -189,7 +196,7 @@ section nav ul button {
 
 section nav ul button:hover,
 section nav ul button:focus-visible {
-  transform: scale(1.4);
+  transform: scale(1.2);
 }
 
 section nav ul button:focus-visible {
@@ -197,17 +204,13 @@ section nav ul button:focus-visible {
   outline: 1px solid var(--white);
 }
 
-section nav ul button:focus-visible:active {
+section nav ul button:focus-visible:active i {
   transform: scale(1.2);
 }
 
 section nav ul button:hover:active {
   transform: scale(1.2);
   opacity: 0.88;
-}
-
-section nav ul button span {
-  display: none;
 }
 
 section i {
@@ -217,6 +220,42 @@ section i {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   transition: transform 250ms ease-in-out;
+}
+
+section nav ul li {
+  position: relative;
+}
+
+section nav ul li span {
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  bottom: -76%;
+  font-size: 0.96rem;
+  padding: 0.36em 0.76em;
+  border-radius: 8px;
+  font-family: sans-serif;
+  background-color: var(--background);
+  border: 1px solid var(--background);
+  color: var(--white);
+}
+
+section nav ul li span::before {
+  position: absolute;
+  content: "";
+  width: 8px;
+  height: 8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  top: -4px;
+  background-color: var(--background);
+  border: 1px solid var(--background);
+}
+
+section nav ul li:has(button:hover) span {
+  display: inline;
 }
 
 /* Stopwatch */
@@ -269,4 +308,33 @@ section i {
   cursor: pointer;
   user-select: none;
   outline: 1px solid red;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-3.6px);
+  }
+  50% {
+    transform: translateX(3.6px);
+  }
+  75% {
+    transform: translateX(-3.6px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Classe que aplica a animação */
+.shake {
+  animation: shake 400ms;
+  transition: color 3s linear;
+}
+
+.shake i {
+  transition: color 280ms linear;
+  color: #fc6e6e;
 }
